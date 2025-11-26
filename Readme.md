@@ -1,25 +1,56 @@
-Step 1 : Go to the directory with the files (fem.jl, manifest.toml .....)
+## 🔧 How to Run
 
-**julia --project=.**
+### **Step 1 — Open a Julia REPL in this folder**
 
+Go to the directory containing `mpm.jl`, `Project.toml`, `Manifest.toml` etc. then run:
 
-Step 2: Now run these within the REPL. These two lines of code are not required after the first time
+```
+julia --project=.
+```
 
-**import Pkg**
-**Pkg.instantiate()**
+---
 
+### **Step 2 — Instantiate the environment (only required to run code for the first time )**
 
-Step 3 : Run the desired file in the REPL 
+Inside the Julia REPL:
 
-**include("fem.jl")**
-**main()**
+```
+import Pkg
+Pkg.instantiate()
+```
 
-or
+This downloads all required dependencies.
 
-**include("mpm.jl")**
-**main()**
+---
 
+### **Step 3 — Run the FEM solver**
 
+Inside the Julia REPL:
 
+```
+include("fem.jl")
+main()
+```
 
+---
+
+or for the mpm 
+```
+include("mpm.jl")
+main()
+```
+
+The MPM solver writes:
+
+- Per-particle logs (use XLSX instead of the csv)
+- VTK files for Paraview
+- All outputs stored inside `MPM_results/`
+
+The FEM solver writes:
+
+- Tip deflection time history (XLSX)
+- Expected and final deflection  
+- Results stored inside `fem_results/`
+
+---
 
